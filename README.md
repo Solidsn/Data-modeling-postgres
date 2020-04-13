@@ -11,26 +11,26 @@ In this project, we build an ETL pipeline using Python. We will define a fact an
 
 All necessary packages are listed in the ```requirements.txt```
 
-First we have to run 
+First we have to run
 ``` python create_tables.py```
-this scipt will 
-- Drops (if exists) and Creates the sparkify database. 
+this scipt will
+- Drops (if exists) and Creates the sparkify database.
 
 - Establishes connection with the sparkify database and gets
-    cursor to it.  
+    cursor to it.
 
-- Drops all the tables.  
-    
-- Creates all tables needed. 
-    
-- Finally, closes the connection. 
-Then run the ETL script 
+- Drops all the tables.
+
+- Creates all tables needed.
+
+- Finally, closes the connection.
+Then run the ETL script
 ```python etl.py```
 
 ## Database Schema
 
-The database define fact and dimension tables as a star schema 
-- Fact table (songplays) 
+The database define fact and dimension tables as a star schema
+- Fact table (songplays)
 - Dimension tables (time, users, songs and artists)
 
-![Database schema](Database_schema.png)
+![Database schema](schema.png)
