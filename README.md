@@ -25,7 +25,7 @@ this scipt will
 
 - Finally, closes the connection.
 
-Then run the ETL script ```python etl.py```
+Then the ETL script ```python etl.py```
 
 ## Database Schema
 
