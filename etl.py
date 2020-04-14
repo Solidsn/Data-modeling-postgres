@@ -9,14 +9,20 @@ def process_song_file(cur, filepath):
     # open song file
     df = pd.read_json(filepath, lines=True)
     
+    # list of columns names needed for songs and artists table
     songs_columns = ["song_id", "title", "artist_id", "year", "duration"]
-    # insert song record
+    artist_columns = ["artist_id", "artist_name", "artist_location", "artist_latitude", "artist_longitude"]
+    
+    # retrieve first row
     song_data = df[songs_columns].values[0]
+    # insert song record
     cur.execute(song_table_insert, song_data)
     
-    artist_columns = ["artist_id", "artist_name", "artist_location", "artist_latitude", "artist_longitude"]
-    # insert artist record
+    
+   
+    # retrieve first row
     artist_data = df[artist_columns].values[0]
+    # insert artist record
     cur.execute(artist_table_insert, artist_data)
 
 
@@ -40,7 +46,7 @@ def process_log_file(cur, filepath):
 
     # load user table
     users_columns = ["userId", "firstName", "lastName", "gender", "level"]
-    user_df = df[users_columns].drop_duplicates(subset="userId")
+    user_df = df[users_columns]
 
     # insert user records
     for i, row in user_df.iterrows():
